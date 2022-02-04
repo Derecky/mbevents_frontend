@@ -1,13 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -18,17 +8,23 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { ThemeProvider } from 'styled-components';
+
+import { Splash } from '@screens/Splash';
+import theme from './theme';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaView>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView>
-        <Text>Funcionou!!</Text>
-      </ScrollView>
-    </SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView>
+        <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
+        <ScrollView>
+          <Splash />
+        </ScrollView>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 };
 

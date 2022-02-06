@@ -3,7 +3,9 @@ import { heightScale, widthScale } from '@utils/dimensions';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { Platform } from 'react-native';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.75
+})`
   margin-top: 32px;
 
   height: ${heightScale(33)}px;

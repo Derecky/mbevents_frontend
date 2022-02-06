@@ -1,3 +1,4 @@
+import { heightScale } from './../../utils/dimensions';
 import styled, { css } from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import { getBottomSpace } from 'react-native-iphone-x-helper'
@@ -27,7 +28,7 @@ export const Title = styled.Text`
 export const BrandImg = styled.Image.attrs({
   resizeMode: 'contain',
 })`
-  width: ${widthScale(75)}px;
+  height: ${heightScale(40)}px;
   margin-top: 64px;
   margin-bottom: 32px;
   align-self: center;

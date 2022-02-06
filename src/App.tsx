@@ -11,7 +11,7 @@ import {
 import { ThemeProvider } from 'styled-components';
 
 import { Splash } from '@screens/Splash';
-import { SignIn } from '@screens/SignIn';
+import { Home } from '@screens/Home';
 import theme from './theme';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AuthProvider } from '@hooks/auth';
@@ -24,7 +24,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
       <AuthProvider>
-        <SignIn />
+        <Home />
       </AuthProvider>
     </ThemeProvider>
 

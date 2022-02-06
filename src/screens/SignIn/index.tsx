@@ -63,7 +63,7 @@ export function SignIn() {
 
           <Button
             title='Entrar'
-            onPress={handleSignIn}
+            onPress={() => handleSignIn()}
             isLoading={isLogging}
           />
         </Content>

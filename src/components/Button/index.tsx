@@ -1,5 +1,5 @@
 import React from 'react';
-import { RectButtonProps } from 'react-native-gesture-handler';
+import { TouchableOpacityProps } from 'react-native';
 
 import {
   Container,
@@ -8,20 +8,21 @@ import {
   TypeProps
 } from './styles';
 
-type Props = RectButtonProps & {
+type Props = TouchableOpacityProps & {
   title: string;
   type?: TypeProps;
   isLoading?: boolean;
+  onPress: () => void
 }
 
 export function Button({
   title,
+  onPress,
   type = "primary",
   isLoading = false,
-  ...rest
 }: Props) {
   return (
-    <Container type={type} enabled={!isLoading} {...rest}>
+    <Container onPress={onPress} type={type} disabled={isLoading}>
       {isLoading ? <Load /> : < Title>{title}</Title>}
     </Container>
   );

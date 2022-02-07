@@ -24,8 +24,8 @@ export function UserTabRoutes() {
           height: 64,
           paddingVertical: Platform.OS === 'ios' ? 20 : 0
         },
-
       }}
+      initialRouteName='eventos'
     >
       <Screen
         name="ingressos"

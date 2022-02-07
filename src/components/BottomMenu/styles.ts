@@ -44,7 +44,7 @@ export const Quantity = styled.Text<NotificationProps>`
   font-size: 12px;
 
   ${({ theme }) => css`
-  color: ${theme.COLORS.WHITE};    
-  font-family: ${theme.FONTS.ROBOTO_REGULAR};
+    color: ${theme.COLORS.WHITE};    
+    font-family: ${theme.FONTS.ROBOTO_REGULAR};
   `};
 `;

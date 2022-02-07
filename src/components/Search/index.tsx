@@ -11,7 +11,6 @@ import { Alert } from 'react-native';
 
 import CloseSvg from '@assets/images/svgs/close.svg';
 import SearchSvg from '@assets/images/svgs/search.svg';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export function Search() {
   const [searchText, setSearchText] = useState('');

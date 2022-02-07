@@ -21,7 +21,7 @@ import {
 
 import Avatar from '@assets/images/svgs/avatar.svg';
 import Logout from '@assets/images/svgs/logout.svg';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 

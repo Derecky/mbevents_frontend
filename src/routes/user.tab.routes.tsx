@@ -7,6 +7,7 @@ import { Home } from '@screens/Home';
 
 import { BottomMenu } from '@components/BottomMenu';
 import { UserStackRoutes } from './user.stack.routes';
+import { Tickets } from '@screens/Tickets';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -29,7 +30,7 @@ export function UserTabRoutes() {
     >
       <Screen
         name="ingressos"
-        component={Home}
+        component={Tickets}
         options={{
           tabBarIcon: ({ color }) => (
             <BottomMenu title="Ingressos" color={color} />

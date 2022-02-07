@@ -19,7 +19,7 @@ export const BackgroundHeader = styled(LinearGradient).attrs(({ theme }) => ({
 
 export const Content = styled.View`
   width: 100%;
-  padding: 0 32px;
+  padding: 0 8px;
   margin-top: 24px;
 `;
 

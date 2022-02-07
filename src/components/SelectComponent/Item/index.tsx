@@ -7,6 +7,8 @@ import {
   Title
 } from './styles';
 
+import DotSvg from '@assets/images/svgs/dot.svg';
+
 type Props = {
   selected: boolean,
   title: string,
@@ -17,7 +19,7 @@ export function Item({ selected, title, onPress }: Props) {
   return (
     <Container selected={selected} onPress={onPress}>
       <Radius>
-        <SelectedRadius selected={selected} />
+        {selected && <DotSvg />}
       </Radius>
       <Title>{title}</Title>
     </Container>

@@ -48,7 +48,7 @@ export const Radius = styled.View`
 export const SelectedRadius = styled.View<Props>`
   width: ${widthScale(2)}px;
   height: ${widthScale(2)}px;
-  border-radius: 50px;
+  border-radius: ${widthScale(2)}px;
 
   ${({ theme, selected }) => selected && css`
       background-color: ${theme.COLORS.BRAND_PRIMARY_DARK};

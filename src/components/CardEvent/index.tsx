@@ -12,9 +12,14 @@ import {
   DateMounth
 } from './styles';
 
-export function CardEvent() {
+interface CardEventProps {
+  data: any
+  onPress: () => void
+}
+
+export function CardEvent({ data, onPress }: CardEventProps) {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Content>
         <EventImg source={{
           uri: 'https://media.starlightcms.io/workspaces/pague-menos/portal-sempre-bem/large/istock-1227545308-ya8rnoqcq7.jpeg'

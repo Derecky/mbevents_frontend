@@ -1,20 +1,14 @@
 import React from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
-import { Splash } from '@screens/Splash';
-import { Home } from '@screens/Home';
-import theme from './theme';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import theme from './src/theme';
 import { AuthProvider } from '@hooks/auth';
+import { Routes } from './src/routes';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -24,7 +18,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
       <AuthProvider>
-        <Home />
+        <Routes />
       </AuthProvider>
     </ThemeProvider>
 

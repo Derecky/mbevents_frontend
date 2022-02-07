@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
+
 import { CardEvent } from '@components/CardEvent';
 import { Search } from '@components/Search';
-import React from 'react';
 
 import {
   Container,
@@ -20,8 +21,26 @@ import {
 
 import Avatar from '@assets/images/svgs/avatar.svg';
 import Logout from '@assets/images/svgs/logout.svg';
+import { FlatList } from 'react-native-gesture-handler';
+
+import { useNavigation } from '@react-navigation/native';
+
+interface onlyToFlatlist {
+  id: string
+}
 
 export function Home() {
+  const navigation = useNavigation();
+
+  const [events, setEvents] = useState<onlyToFlatlist[]>([
+    { id: '1' },
+    { id: '2' }
+  ]);
+
+  function handleOpen(id: string) {
+    navigation.navigate('event', { id });
+  }
+
   return (
     <Container>
       <BackgroundHeader>
@@ -48,9 +67,22 @@ export function Home() {
       <Divider />
 
       <Content>
-        <CardEvent />
-        <CardEvent />
-        <CardEvent />
+        <FlatList
+          data={events}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <CardEvent
+              data={item}
+              onPress={() => handleOpen(item.id)}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingTop: 20,
+            paddingBottom: 125,
+            marginHorizontal: 24
+          }}
+        />
       </Content>
 
     </Container>

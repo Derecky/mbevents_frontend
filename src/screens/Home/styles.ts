@@ -17,12 +17,7 @@ export const BackgroundHeader = styled(LinearGradient).attrs(({ theme }) => ({
   justify-content: center;
 `;
 
-export const Content = styled.ScrollView.attrs({
-  showsVerticalScrollIndicator: false,
-  contentContainerStyle: {
-    paddingBottom: getBottomSpace() + 48
-  },
-})`
+export const Content = styled.View`
   width: 100%;
   padding: 0 32px;
   margin-top: 24px;

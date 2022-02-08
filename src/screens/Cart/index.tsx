@@ -17,11 +17,16 @@ const MOCK_PAYMENTS_FORMS = ['Cartão de crédito', 'Pix'];
 
 export function Cart() {
   const navigation = useNavigation()
+  const [selected, setSelected] = useState('cc_payment');
 
   const [tickets, setTickets] = useState(['', '', '']);
 
   function handleAccept() {
-    navigation.navigate('cc_payment');
+    if (selected === 'cc_payment') {
+      navigation.navigate("cc_payment");
+    } else {
+      navigation.navigate("pix_payment");
+    }
   }
 
   return (
@@ -38,6 +43,7 @@ export function Cart() {
         <SelectComponent
           title='Formas de pagamento'
           itemsTitle={MOCK_PAYMENTS_FORMS}
+          chooseOption={setSelected}
         />
 
         <TotalPrice

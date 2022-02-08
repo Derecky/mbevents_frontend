@@ -18,8 +18,11 @@ import { TitlePage } from '@components/TitlePage';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 import { TotalPrice } from '@components/TotalPrice';
+import { useNavigation } from '@react-navigation/native';
 
 export function CreditCardPayment() {
+  const navigation = useNavigation();
+
   const [name, setName] = useState('');
   const [numberCard, setNumberCard] = useState('');
   const [validate, setValidate] = useState('')

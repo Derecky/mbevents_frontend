@@ -5,6 +5,7 @@ import { Home } from '@screens/Home';
 import { EventDetails } from '@screens/EventDetails';
 import { Cart } from '@screens/Cart';
 import { CreditCardPayment } from '@screens/CreditCardPayment';
+import { PixPayment } from '@screens/PixPayment';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ export function UserStackRoutes() {
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen name='home' component={Home} />
       <Screen name='event' component={EventDetails} />
+      <Screen name='cart' component={CartStackRoutes} />
     </Navigator>
   )
 }
@@ -22,7 +24,8 @@ export function CartStackRoutes() {
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen name='cart' component={Cart} />
       <Screen name='cc_payment' component={CreditCardPayment} />
-      <Screen name='pix_payment' component={EventDetails} />
+      <Screen name='pix_payment' component={PixPayment} />
+      <Screen name='home_Stack' component={UserStackRoutes} />
     </Navigator>
   )
 

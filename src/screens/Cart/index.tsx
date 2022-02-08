@@ -1,36 +1,34 @@
+import React, { useState } from 'react';
 import { TicketCard } from '@components/TicketCard';
 import { SelectComponent } from '@components/SelectComponent';
-import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Divider } from '../Home/styles';
 
 import {
   Container,
   Content,
-  BackgroundHeader,
-  Title,
-  TitlePage,
-  TotalContainer,
-  TotalText,
-  TotalPrice
 } from './styles';
 import { Button } from '@components/Button';
+import { useNavigation } from '@react-navigation/native';
+import { Header } from '@components/Header';
+import { TitlePage } from '@components/TitlePage';
+import { TotalPrice } from '@components/TotalPrice';
 
 const MOCK_PAYMENTS_FORMS = ['Cartão de crédito', 'Pix'];
 
-export function Tickets() {
+export function Cart() {
+  const navigation = useNavigation()
+
   const [tickets, setTickets] = useState(['', '', '']);
+
+  function handleAccept() {
+    navigation.navigate('cc_payment');
+  }
 
   return (
     <Container>
-      <BackgroundHeader>
-        <View style={{ width: 1 }} />
-        <Title>Carrinho</Title>
-        <View style={{ width: 1 }} />
-      </BackgroundHeader>
+      <Header title="Carrinho" />
 
-      <TitlePage>Resumo de compra</TitlePage>
-      <Divider />
+      <TitlePage title='Resumo de compra' />
       <Content>
         <View style={{ marginBottom: 32 }}>
 
@@ -42,15 +40,14 @@ export function Tickets() {
           itemsTitle={MOCK_PAYMENTS_FORMS}
         />
 
-        <TotalContainer>
-          <TotalText>Total:</TotalText>
-          <TotalPrice>R$ 199,90</TotalPrice>
-        </TotalContainer>
+        <TotalPrice
+          price="199,90"
+        />
 
         <Button
-          title='Adicionar ao carrinho'
+          title='Continuar pagamento'
           type='secondary'
-          onPress={() => { }}
+          onPress={() => handleAccept()}
         />
       </Content>
 

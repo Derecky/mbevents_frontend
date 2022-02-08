@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Home } from '@screens/Home';
 import { EventDetails } from '@screens/EventDetails';
+import { Cart } from '@screens/Cart';
+import { CreditCardPayment } from '@screens/CreditCardPayment';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -13,4 +15,15 @@ export function UserStackRoutes() {
       <Screen name='event' component={EventDetails} />
     </Navigator>
   )
+}
+
+export function CartStackRoutes() {
+  return (
+    <Navigator screenOptions={{ headerShown: false }}>
+      <Screen name='cart' component={Cart} />
+      <Screen name='cc_payment' component={CreditCardPayment} />
+      <Screen name='pix_payment' component={EventDetails} />
+    </Navigator>
+  )
+
 }

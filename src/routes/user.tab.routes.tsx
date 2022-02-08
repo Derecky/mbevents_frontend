@@ -6,8 +6,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home } from '@screens/Home';
 
 import { BottomMenu } from '@components/BottomMenu';
-import { UserStackRoutes } from './user.stack.routes';
-import { Tickets } from '@screens/Tickets';
+import { CartStackRoutes, UserStackRoutes } from './user.stack.routes';
+import { Cart } from '@screens/Cart';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -30,7 +30,7 @@ export function UserTabRoutes() {
     >
       <Screen
         name="ingressos"
-        component={Tickets}
+        component={CartStackRoutes}
         options={{
           tabBarIcon: ({ color }) => (
             <BottomMenu title="Ingressos" color={color} />
@@ -48,7 +48,7 @@ export function UserTabRoutes() {
       />
       <Screen
         name="carrinho"
-        component={Home}
+        component={Cart}
         options={{
           tabBarIcon: ({ color }) => (
             <BottomMenu title="Carrinho" color={color} notifications='0' />

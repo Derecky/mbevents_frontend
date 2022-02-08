@@ -8,6 +8,8 @@ export declare global {
       home: undefined;
       event: EventNavigationProps;
       cart: undefined;
+      cc_payment: undefined;
+      pix_payment: undefined;
     }
   }
 }

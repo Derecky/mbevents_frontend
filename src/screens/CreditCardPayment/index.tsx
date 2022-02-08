@@ -25,6 +25,11 @@ export function CreditCardPayment() {
   const [validate, setValidate] = useState('')
   const [securytiCode, setSecurityCode] = useState('');
 
+  function cardNumberAdjuste(cardNumber: string) {
+    if (cardNumber.length !== 16) {
+      const newFormat = cardNumber
+    }
+  }
 
   return (
     <Container>
@@ -55,6 +60,7 @@ export function CreditCardPayment() {
             type='secondary'
             autoCorrect={false}
             autoCapitalize='none'
+            maxLength={16}
           />
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Input

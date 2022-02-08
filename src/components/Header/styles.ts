@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/native';
-import { heightScale } from '@utils/dimensions';
+import { heightScale, widthScale } from '@utils/dimensions';
 import LinearGradient from 'react-native-linear-gradient';
 
 export const Container = styled.View`
@@ -13,7 +13,7 @@ export const BackgroundHeader = styled(LinearGradient).attrs(({ theme }) => ({
 }))`
   flex-direction: row;
   height: ${heightScale(17)}px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 `;
 
@@ -24,4 +24,13 @@ export const Title = styled.Text`
     font-family: ${theme.FONTS.DM_SERIF_DISPLAY_REGULAR};
     color: ${theme.COLORS.WHITE};
   `}
+`;
+
+export const IconContainer = styled.TouchableOpacity`
+  border: 1px solid #FFFFFF24;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  width: ${widthScale(10)}px;
+  height: ${widthScale(10)}px;
 `;

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/native';
-import { heightScale } from '@utils/dimensions';
+import { heightScale, widthScale } from '@utils/dimensions';
 
 export const Container = styled.View`
   flex: 1;
@@ -41,6 +41,22 @@ export const Title = styled.Text`
     font-family: ${theme.FONTS.DM_SERIF_DISPLAY_REGULAR};
     color: ${theme.COLORS.GRAY_900}
   `};
+`;
+
+export const IconContainer = styled.TouchableOpacity`
+  position: absolute;
+  top: 10%;
+  left: 5%;
+
+  width: ${widthScale(10)}px;
+  height: ${widthScale(10)}px;
+
+  border: 1px solid #FFFFFF24;
+  border-radius: 12px;
+
+  justify-content: center;
+  align-items: center;
+  background-color: #00000075;
 `;
 
 export const TotalContainer = styled.View`

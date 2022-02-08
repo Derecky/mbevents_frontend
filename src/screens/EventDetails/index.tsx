@@ -10,6 +10,7 @@ import {
   TotalContainer,
   TotalText,
   TotalPrice,
+  IconContainer
 } from './styles';
 
 import { EventNavigationProps } from '@src/@types/navigation';
@@ -22,6 +23,7 @@ import TicketSvg from '@assets/images/svgs/ticket.svg';
 import ClockSvg from '@assets/images/svgs/clock.svg';
 import { SelectComponent } from '@components/SelectComponent';
 import { Button } from '@components/Button';
+import ChevronLeftSvg from '@assets/images/svgs/chevron_left.svg';
 
 const texts = [
   { label: 'Sobre', info: "Mussum Ipsum, cacilds vidis litro abertis. Mé faiz elementum girarzis, nisi eros vermeio.Copo furadis é disculpa de bebadis, arcu quam euismod magna.Viva Forevis aptent taciti sociosqu ad litora torquent.Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.Delegadis gente finis, bibendum egestas augue arcu ut est.Mais vale um bebadis conhecidiss, que um alcoolatra anonimis.Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl." },
@@ -59,6 +61,12 @@ export function EventDetails() {
           <EventImage source={{
             uri: 'https://media.starlightcms.io/workspaces/pague-menos/portal-sempre-bem/large/istock-1227545308-ya8rnoqcq7.jpeg'
           }} />
+          <IconContainer
+            style={{ width: 40 }}
+            onPress={navigation.goBack}
+          >
+            <ChevronLeftSvg />
+          </IconContainer>
         </EventImageContainer>
         <ContentArea>
           <Title>Festa na Arena x</Title>

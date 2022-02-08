@@ -21,6 +21,7 @@ export const Content = styled.View`
   width: 100%;
   padding: 0 8px;
   margin-top: 24px;
+  margin-bottom: 140px;
 `;
 
 export const Divider = styled.View.attrs({

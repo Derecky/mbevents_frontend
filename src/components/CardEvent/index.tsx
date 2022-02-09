@@ -1,3 +1,5 @@
+import { mounthConvert } from '@utils/mounthConvert';
+import { Event } from '@src/_MOCK_/events';
 import React from 'react';
 
 import {
@@ -13,7 +15,7 @@ import {
 } from './styles';
 
 interface CardEventProps {
-  data: any
+  data: Event,
   onPress: () => void
 }
 
@@ -22,16 +24,16 @@ export function CardEvent({ data, onPress }: CardEventProps) {
     <Container onPress={onPress}>
       <Content>
         <EventImg source={{
-          uri: 'https://media.starlightcms.io/workspaces/pague-menos/portal-sempre-bem/large/istock-1227545308-ya8rnoqcq7.jpeg'
+          uri: data.image
         }} />
         <InfoContainer>
-          <Title>Festa na arena X</Title>
-          <Description>A arena hoje contará com atrações fantásticas, traga sua família para prestigiar o espetáculo</Description>
+          <Title>{data.name}</Title>
+          <Description>{data.description}</Description>
         </InfoContainer>
 
         <DateContainer>
-          <DateDay>28</DateDay>
-          <DateMounth>OUT</DateMounth>
+          <DateDay>{data.day}</DateDay>
+          <DateMounth>{mounthConvert(data.mounth)}</DateMounth>
         </DateContainer>
       </Content>
 

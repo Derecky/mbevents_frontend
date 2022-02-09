@@ -1,12 +1,10 @@
-export type EventNavigationProps = {
-  id?: string;
-}
+import { Event } from '../_MOCK_/events';
 
 export declare global {
   namespace ReactNavigation {
     interface RootParamList {
       home: undefined;
-      event: EventNavigationProps;
+      event: Event;
       cart: undefined;
       cc_payment: undefined;
       pix_payment: undefined;

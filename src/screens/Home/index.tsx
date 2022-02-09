@@ -29,16 +29,16 @@ interface onlyToFlatlist {
   id: string
 }
 
+import { MOCK_EVENTS, Event } from '../../_MOCK_/events';
+
 export function Home() {
+
   const navigation = useNavigation();
 
-  const [events, setEvents] = useState<onlyToFlatlist[]>([
-    { id: '1' },
-    { id: '2' }
-  ]);
+  const [events, setEvents] = useState<Event[]>(MOCK_EVENTS);
 
-  function handleOpen(id: string) {
-    navigation.navigate('event', { id });
+  function handleOpen(event: Event) {
+    navigation.navigate('event', event);
   }
 
   return (
@@ -69,11 +69,11 @@ export function Home() {
       <Content>
         <FlatList
           data={events}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.name}
           renderItem={({ item }) => (
             <CardEvent
               data={item}
-              onPress={() => handleOpen(item.id)}
+              onPress={() => handleOpen(item)}
             />
           )}
           showsVerticalScrollIndicator={false}

@@ -13,6 +13,7 @@ import { Header } from '@components/Header';
 import { TitlePage } from '@components/TitlePage';
 import { TotalPrice } from '@components/TotalPrice';
 import { useCart } from '@hooks/cart';
+import { Text } from 'react-native';
 
 const MOCK_PAYMENTS_FORMS = ['Cartão de crédito', 'Pix'];
 
@@ -37,30 +38,38 @@ export function Cart() {
       <Content>
         <View style={{ marginBottom: 32 }}>
 
-          {cart.map((event, index) => (
-            <TicketCard
-              key={index}
-              data={event}
-              handleDelete={(() => removeToCart(event))}
-            />
-          ))}
+          {cart.length > 0
+            ? cart.map((event, index) => (
+              <TicketCard
+                key={index}
+                data={event}
+                handleDelete={(() => removeToCart(event))}
+              />
+            ))
+
+            : <Text style={{ color: 'black' }}>Não tem nada no carrinho!</Text>
+          }
         </View>
 
-        <SelectComponent
-          title='Formas de pagamento'
-          itemsTitle={MOCK_PAYMENTS_FORMS}
-          chooseOption={setSelected}
-        />
+        {cart.length > 0 &&
+          <>
+            <SelectComponent
+              title='Formas de pagamento'
+              itemsTitle={MOCK_PAYMENTS_FORMS}
+              chooseOption={setSelected}
+            />
 
-        <TotalPrice
-          price={totalPrice}
-        />
+            <TotalPrice
+              price={totalPrice}
+            />
 
-        <Button
-          title='Continuar pagamento'
-          type='secondary'
-          onPress={() => handleAccept()}
-        />
+            <Button
+              title='Continuar pagamento'
+              type='secondary'
+              onPress={() => handleAccept()}
+            />
+          </>
+        }
       </Content>
 
     </Container >

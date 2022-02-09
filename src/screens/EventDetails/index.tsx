@@ -58,8 +58,6 @@ export function EventDetails() {
 
     addToCart(payload);
     navigation.navigate('home');
-    Alert.alert('Sucesso!', 'Seu ingresso está no carrinho');
-
   }
 
 

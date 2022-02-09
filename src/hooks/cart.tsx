@@ -5,6 +5,7 @@ import React, {
   useState,
   ReactNode,
 } from 'react';
+import { Alert } from 'react-native';
 
 type CartEvent = {
   event: Event,
@@ -31,11 +32,18 @@ function CartProvider({ children }: CartProviderProps) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   function addToCart(event: CartEvent) {
-    let newCart = [...cart];
-    newCart.push(event);
-    setCart(newCart);
-    const newTotalPrice = totalPrice + event.price;
-    setTotalPrice(newTotalPrice);
+    const existAnEqual = cart.some((item) => item.event === event.event);
+
+    if (!existAnEqual) {
+      let newCart = [...cart];
+      newCart.push(event);
+      setCart(newCart);
+      const newTotalPrice = totalPrice + event.price;
+      setTotalPrice(newTotalPrice);
+      Alert.alert('Sucesso!', 'Seu ingresso está no carrinho.');
+    } else {
+      Alert.alert('Erro!', 'Já existe esse produto no carrinho.')
+    }
   }
 
   function removeToCart(event: CartEvent) {

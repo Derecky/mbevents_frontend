@@ -40,6 +40,10 @@ export function EventDetails() {
   const [price, setPrice] = useState<number>(event.sect_price[0].price);
 
   const sectors = event.sect_price.map((item) => item.sect);
+  const about_discount = [
+    { label: 'Sobre', info: event.about },
+    { label: 'Descontos', info: event.abount_discounts },
+  ]
 
   function handleAddToCart() {
 
@@ -95,7 +99,8 @@ export function EventDetails() {
             Icon={ClockSvg}
           />
 
-          <Tabs texts={texts} />
+          <Tabs texts={about_discount} />
+
           {event.sect_price &&
             <SelectComponent
               itemsTitle={sectors}

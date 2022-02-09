@@ -7,12 +7,15 @@ import { Home } from '@screens/Home';
 
 import { BottomMenu } from '@components/BottomMenu';
 import { CartStackRoutes, UserStackRoutes } from './user.stack.routes';
-import { Cart } from '@screens/Cart';
+
+import { useCart } from '@hooks/cart';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
+
 export function UserTabRoutes() {
   const { COLORS } = useTheme();
+  const { cart } = useCart();
 
   return (
     <Navigator
@@ -48,10 +51,10 @@ export function UserTabRoutes() {
       />
       <Screen
         name="carrinho"
-        component={Cart}
+        component={CartStackRoutes}
         options={{
           tabBarIcon: ({ color }) => (
-            <BottomMenu title="Carrinho" color={color} notifications='0' />
+            <BottomMenu title="Carrinho" color={color} notifications={String(cart.length)} />
           )
         }}
       />

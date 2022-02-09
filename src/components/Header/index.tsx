@@ -12,10 +12,10 @@ import ChevronLeftSvg from '@assets/images/svgs/chevron_left.svg';
 
 type Props = {
   title: string,
-  noBack: boolean
+  noBack?: boolean
 }
 
-export function Header({ title, noBack }: Props) {
+export function Header({ title, noBack = false }: Props) {
   const { goBack } = useNavigation();
 
   return (

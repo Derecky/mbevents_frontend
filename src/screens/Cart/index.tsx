@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import {
   Container,
   Content,
+  EmptyCartInfo
 } from './styles';
 import { TicketCard } from '@components/TicketCard';
 import { SelectComponent } from '@components/SelectComponent';
@@ -13,17 +14,16 @@ import { Header } from '@components/Header';
 import { TitlePage } from '@components/TitlePage';
 import { TotalPrice } from '@components/TotalPrice';
 import { useCart } from '@hooks/cart';
-import { Text } from 'react-native';
 
 const MOCK_PAYMENTS_FORMS = ['Cartão de crédito', 'Pix'];
 
 export function Cart() {
   const navigation = useNavigation()
   const { cart, totalPrice, removeToCart } = useCart();
-  const [selected, setSelected] = useState('cc_payment');
+  const [selected, setSelected] = useState('Cartão de crédito');
 
   function handleAccept() {
-    if (selected === 'cc_payment') {
+    if (selected === 'Cartão de crédito') {
       navigation.navigate("cc_payment");
     } else {
       navigation.navigate("pix_payment");
@@ -47,7 +47,7 @@ export function Cart() {
               />
             ))
 
-            : <Text style={{ color: 'black' }}>Não tem nada no carrinho!</Text>
+            : <EmptyCartInfo>Não tem nada no seu carrinho!</EmptyCartInfo>
           }
         </View>
 

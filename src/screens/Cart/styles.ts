@@ -13,6 +13,15 @@ export const Content = styled.ScrollView.attrs({
   margin-top: 24px;
 `;
 
+export const EmptyCartInfo = styled.Text`
+  font-size: 14px;
+
+  ${({ theme }) => css`
+    font-family: ${theme.FONTS.ROBOTO_REGULAR};
+    color: ${theme.COLORS.GRAY_500}
+  `}
+`;
+
 
 
 

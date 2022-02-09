@@ -8,6 +8,7 @@ export declare global {
       cart: undefined;
       cc_payment: undefined;
       pix_payment: undefined;
+      success: undefined;
     }
   }
 }

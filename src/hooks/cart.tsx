@@ -19,6 +19,7 @@ type CartContextData = {
   totalPrice: number;
   addToCart: (event: CartEvent) => void;
   removeToCart: (event: CartEvent) => void;
+  clearCart: () => void;
 }
 
 type CartProviderProps = {
@@ -53,12 +54,18 @@ function CartProvider({ children }: CartProviderProps) {
     setTotalPrice(newTotalPrice);
   }
 
+  function clearCart() {
+    setCart([]);
+    setTotalPrice(0);
+  }
+
   //Compartilhado por contexto
   const store = {
     cart,
     totalPrice,
     addToCart,
     removeToCart,
+    clearCart
   }
 
   return (

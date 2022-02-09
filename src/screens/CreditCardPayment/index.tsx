@@ -19,10 +19,12 @@ import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 import { TotalPrice } from '@components/TotalPrice';
 import { useNavigation } from '@react-navigation/native';
+import { useCart } from '@hooks/cart';
+
 
 export function CreditCardPayment() {
   const navigation = useNavigation();
-
+  const { totalPrice } = useCart()
   const [name, setName] = useState('');
   const [numberCard, setNumberCard] = useState('');
   const [validate, setValidate] = useState('')
@@ -94,13 +96,13 @@ export function CreditCardPayment() {
           />
 
           <TotalPrice
-            price="1,99"
+            price={totalPrice}
           />
 
           <Button
             type='secondary'
             title='Confirmar pagamento'
-            onPress={() => { }}
+            onPress={() => { navigation.navigate('success') }}
           />
 
         </Content>

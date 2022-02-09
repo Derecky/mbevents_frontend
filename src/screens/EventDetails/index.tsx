@@ -24,6 +24,7 @@ import { SelectComponent } from '@components/SelectComponent';
 import { Button } from '@components/Button';
 import ChevronLeftSvg from '@assets/images/svgs/chevron_left.svg';
 import { Event } from '../../_MOCK_/events';
+import { useCart } from '@hooks/cart';
 
 const texts = [
   { label: 'Sobre', info: "Mussum Ipsum, cacilds vidis litro abertis. Mé faiz elementum girarzis, nisi eros vermeio.Copo furadis é disculpa de bebadis, arcu quam euismod magna.Viva Forevis aptent taciti sociosqu ad litora torquent.Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.Delegadis gente finis, bibendum egestas augue arcu ut est.Mais vale um bebadis conhecidiss, que um alcoolatra anonimis.Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl." },
@@ -31,6 +32,7 @@ const texts = [
 ];
 
 export function EventDetails() {
+  const { addToCart } = useCart();
   const route = useRoute()
   const event = route.params as Event;
   const navigation = useNavigation();
@@ -46,21 +48,35 @@ export function EventDetails() {
   ]
 
   function handleAddToCart() {
+    const payload = {
+      event,
+      price,
+      discount,
+      sector
+    }
 
+    addToCart(payload);
   }
 
 
   function calculateTotal() {
-    const searchSect = event.sect_price.find((item) => item.sect === sector);
-    if (discount === 'Meia entrada' && searchSect !== undefined) {
-      const newPrice = searchSect.price / 2;
+    const searchSect = event.sect_price.filter((item) => item.sect === sector);
+    if (discount === 'Meia entrada') {
+      const newPrice = searchSect[0].price / 2;
       return newPrice;
     }
-    if (discount === 'Inteira' && searchSect !== undefined) {
-      return searchSect.price;
+    if (discount === 'Inteira') {
+      return searchSect[0].price;
     }
+
     return 0;
   }
+
+  useEffect(() => {
+    //inicialize states
+    setSector(event.sect_price[0].sect);
+    setDiscount(event.discount[0]);
+  }, [])
 
   useEffect(() => {
     const newPrice = calculateTotal();

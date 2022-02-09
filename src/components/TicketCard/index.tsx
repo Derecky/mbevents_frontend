@@ -17,8 +17,22 @@ import TicketCardSvg from '@assets/images/svgs/ticketCard.svg';
 import DeleteSvg from '@assets/images/svgs/delete.svg';
 import { heightScale, widthScale } from '@utils/dimensions';
 import { View } from 'react-native';
+import { Event } from '@src/_MOCK_/events';
+import { mounthToNumber } from '@utils/mounthConvert';
 
-export function TicketCard() {
+type EventProps = {
+  event: Event,
+  discount: string,
+  price: number,
+  sector: string
+}
+
+type TicketProps = {
+  data: EventProps,
+  handleDelete?: () => void;
+}
+
+export function TicketCard({ data }: TicketProps) {
   const width = widthScale(87.2);
   const height = heightScale(14.53);
 
@@ -29,14 +43,14 @@ export function TicketCard() {
 
         <InfoContainer>
           <InfoContent>
-            <Title>Festa na Arena</Title>
-            <Subtitle>Ingresso individual</Subtitle>
+            <Title>{data.event.name}</Title>
+            <Subtitle>{data.sector}</Subtitle>
             <InfoDateContainer>
-              <Date>25/10/2022</Date>
-              <Hour>22:00</Hour>
+              <Date>{`${data.event.day}/${mounthToNumber(data.event.mounth)}/${data.event.year}`}</Date>
+              <Hour>{data.event.hour}hs</Hour>
             </InfoDateContainer>
 
-            <Discount>MEIA ENTRADA</Discount>
+            <Discount>{data.discount}</Discount>
           </InfoContent>
           <DeleteContainer>
             <DeleteSvg />

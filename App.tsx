@@ -9,6 +9,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './src/theme';
 import { AuthProvider } from '@hooks/auth';
 import { Routes } from './src/routes';
+import { CartProvider } from '@hooks/cart';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,7 +19,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
       <AuthProvider>
-        <Routes />
+        <CartProvider>
+          <Routes />
+        </CartProvider>
       </AuthProvider>
     </ThemeProvider>
 

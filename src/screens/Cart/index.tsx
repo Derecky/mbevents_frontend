@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { TicketCard } from '@components/TicketCard';
-import { SelectComponent } from '@components/SelectComponent';
 import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import {
   Container,
   Content,
 } from './styles';
+import { TicketCard } from '@components/TicketCard';
+import { SelectComponent } from '@components/SelectComponent';
 import { Button } from '@components/Button';
-import { useNavigation } from '@react-navigation/native';
 import { Header } from '@components/Header';
 import { TitlePage } from '@components/TitlePage';
 import { TotalPrice } from '@components/TotalPrice';
+import { useCart } from '@hooks/cart';
 
 const MOCK_PAYMENTS_FORMS = ['Cartão de crédito', 'Pix'];
 
 export function Cart() {
   const navigation = useNavigation()
+  const { cart, totalPrice } = useCart();
   const [selected, setSelected] = useState('cc_payment');
 
   const [tickets, setTickets] = useState(['', '', '']);
@@ -37,7 +39,12 @@ export function Cart() {
       <Content>
         <View style={{ marginBottom: 32 }}>
 
-          {tickets.map((ticket, index) => <TicketCard key={index} />)}
+          {cart.map((event, index) => (
+            <TicketCard
+              key={index}
+              data={event}
+            />
+          ))}
         </View>
 
         <SelectComponent
@@ -47,7 +54,7 @@ export function Cart() {
         />
 
         <TotalPrice
-          price="199,90"
+          price={totalPrice}
         />
 
         <Button

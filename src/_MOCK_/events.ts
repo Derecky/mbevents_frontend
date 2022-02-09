@@ -29,8 +29,20 @@ export const MOCK_EVENTS: Event[] = [
     discount: ['Meia entrada', 'Inteira'],
     sect_price: [
       {
-        sect: 'Evento',
-        price: 75.00
+        sect: 'Mesa',
+        price: 600.00
+      },
+      {
+        sect: 'Palco - Frente',
+        price: 350.00
+      },
+      {
+        sect: 'Ala esquerda',
+        price: 200.00
+      },
+      {
+        sect: 'Ala direita',
+        price: 200.00
       },
     ],
     image: 'https://images.ticket360.com.br/images.ticket360/eventos/interna/19711.jpg',
@@ -43,7 +55,7 @@ export const MOCK_EVENTS: Event[] = [
     hour: '10:00',
   },
   {
-    name: 'Estância Pet Edição CarnavAU',
+    name: 'CarnavAU',
     description: 'PETS NÃO PAGAM INGRESSO.',
     about: 'Lorem Ipsum - Sobre',
     abount_discounts: 'Lorem Ipsum - Descontos',
@@ -64,7 +76,7 @@ export const MOCK_EVENTS: Event[] = [
     hour: '21:00',
   },
   {
-    name: 'Camarote 011 Carnaval 2022',
+    name: 'Carnaval 2022',
     description: 'Tudo começa na recepção do nosso ponto de encontro fora do Anhembi, onde iremos oferecer um serviço de make-up.',
     about: 'Lorem Ipsum - Sobre',
     abount_discounts: 'Lorem Ipsum - Descontos',

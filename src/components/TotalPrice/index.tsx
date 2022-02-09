@@ -7,10 +7,10 @@ import {
 } from './styles';
 
 type Props = {
-  price: string
+  price: number
 }
 
-export function TotalPrice({ price = '0,00' }: Props) {
+export function TotalPrice({ price }: Props) {
   return (
     <TotalContainer>
       <TotalText>Total:</TotalText>

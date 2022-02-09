@@ -18,10 +18,8 @@ const MOCK_PAYMENTS_FORMS = ['Cartão de crédito', 'Pix'];
 
 export function Cart() {
   const navigation = useNavigation()
-  const { cart, totalPrice } = useCart();
+  const { cart, totalPrice, removeToCart } = useCart();
   const [selected, setSelected] = useState('cc_payment');
-
-  const [tickets, setTickets] = useState(['', '', '']);
 
   function handleAccept() {
     if (selected === 'cc_payment') {
@@ -43,6 +41,7 @@ export function Cart() {
             <TicketCard
               key={index}
               data={event}
+              handleDelete={(() => removeToCart(event))}
             />
           ))}
         </View>

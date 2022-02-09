@@ -32,7 +32,7 @@ type TicketProps = {
   handleDelete?: () => void;
 }
 
-export function TicketCard({ data }: TicketProps) {
+export function TicketCard({ data, handleDelete }: TicketProps) {
   const width = widthScale(87.2);
   const height = heightScale(14.53);
 
@@ -52,7 +52,7 @@ export function TicketCard({ data }: TicketProps) {
 
             <Discount>{data.discount}</Discount>
           </InfoContent>
-          <DeleteContainer>
+          <DeleteContainer onPress={handleDelete}>
             <DeleteSvg />
           </DeleteContainer>
         </InfoContainer>

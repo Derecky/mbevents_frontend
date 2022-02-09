@@ -8,7 +8,9 @@ import { Alert } from 'react-native';
 
 type AuthContextData = {
   signIn: (email: string, password: string) => Promise<void>
-  isLogging: boolean
+  isLogging: boolean,
+  authorized: boolean,
+  signOut: () => void,
 }
 
 type AuthProviderProps = {
@@ -19,6 +21,7 @@ export const AuthContext = createContext({} as AuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [isLogging, setIsLogging] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
 
   async function signIn(email: string, password: string) {
 
@@ -29,18 +32,24 @@ function AuthProvider({ children }: AuthProviderProps) {
 
     setIsLogging(true);
 
-    /*TODO: Criar Login */
-
-
-    Alert.alert('Enviando', `Email: ${email}\nSenha: ${password}`);
-
+    if (email === 'admin@mail.com' && password === '1234') {
+      setAuthorized(true);
+    }
+    setTimeout(() => { }, 2500);
+    // Alert.alert('Enviando', `Email: ${email}\nSenha: ${password}`);
     setIsLogging(false);
+  }
+
+  async function signOut() {
+    setAuthorized(false);
   }
 
   //Compartilhado por contexto
   const store = {
     signIn,
-    isLogging
+    isLogging,
+    authorized,
+    signOut
   }
 
   return (

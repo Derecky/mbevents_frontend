@@ -23,8 +23,8 @@ export function SignIn() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  function handleSignIn() {
-    signIn(email, password);
+  async function handleSignIn() {
+    await signIn(email, password);
   }
 
 

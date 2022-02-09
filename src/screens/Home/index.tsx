@@ -30,10 +30,12 @@ interface onlyToFlatlist {
 }
 
 import { MOCK_EVENTS, Event } from '../../_MOCK_/events';
+import { useAuth } from '@hooks/auth';
 
 export function Home() {
 
   const navigation = useNavigation();
+  const { signOut } = useAuth()
 
   const [events, setEvents] = useState<Event[]>(MOCK_EVENTS);
 
@@ -55,7 +57,7 @@ export function Home() {
             </NameContainer>
           </UserContainer>
 
-          <LogoutBtn>
+          <LogoutBtn onPress={() => signOut()}>
             <Logout width={24} />
           </LogoutBtn>
         </HeaderContainer>

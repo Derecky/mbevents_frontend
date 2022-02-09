@@ -4,6 +4,7 @@ type Section_price = {
 }
 
 export type Event = {
+
   name: string,
   description: string,
   about: string,
@@ -22,6 +23,7 @@ export type Event = {
 
 export const MOCK_EVENTS: Event[] = [
   {
+
     name: 'Roupa Nova',
     description: 'Jantar Show com apresentação da banda Roupa Nova',
     about: "Lorem ipsum - Sobre",
@@ -55,6 +57,7 @@ export const MOCK_EVENTS: Event[] = [
     hour: '10:00',
   },
   {
+
     name: 'CarnavAU',
     description: 'PETS NÃO PAGAM INGRESSO.',
     about: 'Lorem Ipsum - Sobre',
@@ -76,6 +79,7 @@ export const MOCK_EVENTS: Event[] = [
     hour: '21:00',
   },
   {
+
     name: 'Carnaval 2022',
     description: 'Tudo começa na recepção do nosso ponto de encontro fora do Anhembi, onde iremos oferecer um serviço de make-up.',
     about: 'Lorem Ipsum - Sobre',

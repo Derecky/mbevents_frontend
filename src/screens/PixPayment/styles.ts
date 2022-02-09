@@ -6,10 +6,17 @@ export const Container = styled.View`
 
 export const Content = styled.View`
   flex: 1;
-  padding: 0 32px;
+  padding: 24px 32px;
   justify-content: space-around;
+  
 `;
 
 export const Information = styled.Text`
   font-size: 14px;
+`;
+
+export const QRContent = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;

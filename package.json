@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "android-build": "react-native run-android --variant=release"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.2.0",
@@ -19,6 +20,7 @@
     "react-native-gesture-handler": "^2.2.0",
     "react-native-iphone-x-helper": "^1.3.1",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-qrcode-svg": "^6.1.2",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.2",
     "react-native-svg": "^12.1.1",

@@ -66,6 +66,7 @@ export function CreditCardPayment() {
             autoCorrect={false}
             autoCapitalize='none'
             maxLength={16}
+            keyboardType='number-pad'
           />
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Input
@@ -76,6 +77,7 @@ export function CreditCardPayment() {
               autoCorrect={false}
               autoCapitalize='none'
               maxLength={4}
+              keyboardType='numeric'
             />
             <Input
               value={securytiCode}
@@ -85,15 +87,16 @@ export function CreditCardPayment() {
               autoCorrect={false}
               autoCapitalize='none'
               maxLength={3}
+              keyboardType='number-pad'
             />
 
           </View>
-          <Input
+          {/*<Input
             placeholder='Fazer Select'
             type='secondary'
             autoCorrect={false}
             autoCapitalize='none'
-          />
+          />*/}
 
           <TotalPrice
             price={totalPrice}

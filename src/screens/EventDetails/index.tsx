@@ -25,12 +25,6 @@ import { Button } from '@components/Button';
 import ChevronLeftSvg from '@assets/images/svgs/chevron_left.svg';
 import { Event } from '../../_MOCK_/events';
 import { useCart } from '@hooks/cart';
-import { Alert } from 'react-native';
-
-const texts = [
-  { label: 'Sobre', info: "Mussum Ipsum, cacilds vidis litro abertis. Mé faiz elementum girarzis, nisi eros vermeio.Copo furadis é disculpa de bebadis, arcu quam euismod magna.Viva Forevis aptent taciti sociosqu ad litora torquent.Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.Delegadis gente finis, bibendum egestas augue arcu ut est.Mais vale um bebadis conhecidiss, que um alcoolatra anonimis.Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl." },
-  { label: 'Desconto', info: "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.Pra lá , depois divoltis porris, paradis." },
-];
 
 export function EventDetails() {
   const { addToCart } = useCart();
@@ -106,11 +100,11 @@ export function EventDetails() {
             info={`${event.city}/${event.uf}`}
             Icon={LocationSvg}
           />
-          <InfoEventIcons
+          {/*<InfoEventIcons
             title={`Ingressos entre R$70,00 e R$310,00`}
             info='Em ate 3x sem juros'
             Icon={TicketSvg}
-          />
+          />*/}
           <InfoEventIcons
             title={`${event.day} de ${event.mounth} de ${event.year}`}
             info={`Às ${event.hour}hs`}

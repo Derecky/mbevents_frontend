@@ -25,6 +25,7 @@ import { Button } from '@components/Button';
 import ChevronLeftSvg from '@assets/images/svgs/chevron_left.svg';
 import { Event } from '../../_MOCK_/events';
 import { useCart } from '@hooks/cart';
+import { Alert } from 'react-native';
 
 const texts = [
   { label: 'Sobre', info: "Mussum Ipsum, cacilds vidis litro abertis. Mé faiz elementum girarzis, nisi eros vermeio.Copo furadis é disculpa de bebadis, arcu quam euismod magna.Viva Forevis aptent taciti sociosqu ad litora torquent.Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.Delegadis gente finis, bibendum egestas augue arcu ut est.Mais vale um bebadis conhecidiss, que um alcoolatra anonimis.Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl." },
@@ -56,6 +57,9 @@ export function EventDetails() {
     }
 
     addToCart(payload);
+    navigation.navigate('home');
+    Alert.alert('Sucesso!', 'Seu ingresso está no carrinho');
+
   }
 
 

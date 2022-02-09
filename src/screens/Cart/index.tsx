@@ -33,7 +33,7 @@ export function Cart() {
 
   return (
     <Container>
-      <Header title="Carrinho" />
+      <Header title="Carrinho" noBack />
 
       <TitlePage title='Resumo de compra' />
       <Content>

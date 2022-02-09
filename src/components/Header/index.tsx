@@ -11,15 +11,16 @@ import {
 import ChevronLeftSvg from '@assets/images/svgs/chevron_left.svg';
 
 type Props = {
-  title: string
+  title: string,
+  noBack: boolean
 }
 
-export function Header({ title }: Props) {
-  const { goBack, canGoBack } = useNavigation();
+export function Header({ title, noBack }: Props) {
+  const { goBack } = useNavigation();
 
   return (
     <BackgroundHeader>
-      {canGoBack() ? <IconContainer
+      {!noBack ? <IconContainer
         style={{ width: 40 }}
         onPress={goBack}
       >

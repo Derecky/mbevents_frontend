@@ -10,7 +10,10 @@ import {
   Information,
 } from './styles';
 
+import { useNavigation } from '@react-navigation/native';
+
 export function PixPayment() {
+  const navigation = useNavigation();
   return (
     <Container>
       <Header title='Carrinho' />
@@ -23,7 +26,7 @@ export function PixPayment() {
         <Button
           title='Já fiz o pagamento'
           type='secondary'
-          onPress={() => { }}
+          onPress={() => { navigation.navigate('success') }}
         />
       </Content>
 

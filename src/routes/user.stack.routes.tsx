@@ -15,7 +15,6 @@ export function UserStackRoutes() {
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen name='home' component={Home} />
       <Screen name='event' component={EventDetails} />
-      <Screen name='cart' component={CartStackRoutes} />
     </Navigator>
   )
 }

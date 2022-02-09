@@ -3,12 +3,12 @@ import { Platform, PlatformColor } from 'react-native'
 import { useTheme } from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { Home } from '@screens/Home';
 
 import { BottomMenu } from '@components/BottomMenu';
 import { CartStackRoutes, UserStackRoutes } from './user.stack.routes';
 
 import { useCart } from '@hooks/cart';
+import { Tickets } from '@screens/Tickets';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -33,7 +33,7 @@ export function UserTabRoutes() {
     >
       <Screen
         name="ingressos"
-        component={CartStackRoutes}
+        component={Tickets}
         options={{
           tabBarIcon: ({ color }) => (
             <BottomMenu title="Ingressos" color={color} />
